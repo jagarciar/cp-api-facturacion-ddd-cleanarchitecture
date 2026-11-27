@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using InvoiceManagement.Application.DTOs;
 using InvoiceManagement.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace InvoiceManagement.Application.UseCases
 {

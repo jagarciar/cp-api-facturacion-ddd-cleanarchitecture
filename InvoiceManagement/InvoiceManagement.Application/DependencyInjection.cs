@@ -9,7 +9,7 @@ using System.Text;
 
 namespace InvoiceManagement.Application
 {
-    public static class InyeccionDependencias
+    public static class DependencyInjection
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {

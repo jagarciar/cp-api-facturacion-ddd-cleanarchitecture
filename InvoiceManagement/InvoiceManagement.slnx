@@ -4,4 +4,5 @@
   </Folder>
   <Project Path="InvoiceManagement.Application/InvoiceManagement.Application.csproj" />
   <Project Path="InvoiceManagement.Domain/InvoiceManagement.Domain.csproj" />
+  <Project Path="InvoiceManagement.Infraestructure/InvoiceManagement.Infraestructure.csproj" Id="955e0a3f-6c50-4cfc-88f1-3f79cff2bb43" />
 </Solution>
