@@ -2,9 +2,6 @@
 using InvoiceManagement.Application.DTOs;
 using InvoiceManagement.Application.Interfaces;
 using InvoiceManagement.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace InvoiceManagement.Application.UseCases
 {

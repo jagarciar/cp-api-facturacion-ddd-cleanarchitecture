@@ -1,20 +1,14 @@
-﻿using AutoMapper;
-using InvoiceManagement.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using InvoiceManagement.Application.Interfaces;
 
 namespace InvoiceManagement.Application.UseCases
 {
     public class DeleteInvoiceUseCase
     {
         private readonly IInvoiceRepository invoiceRepository;
-        private readonly IMapper mapper;
 
-        public DeleteInvoiceUseCase(IInvoiceRepository invoiceRepository, IMapper mapper)
+        public DeleteInvoiceUseCase(IInvoiceRepository invoiceRepository)
         {
             this.invoiceRepository = invoiceRepository;
-            this.mapper = mapper;
         }
 
         public async Task<bool> ExecuteAsync(Guid invoiceId)
