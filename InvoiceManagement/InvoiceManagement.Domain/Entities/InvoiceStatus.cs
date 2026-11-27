@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InvoiceManagement.Domain.Entities
 {
-    public enum InvoiceType
+    public enum InvoiceStatus
     {
         Draft = 1, 
         Issued = 2, 

@@ -6,6 +6,11 @@ namespace InvoiceManagement.Domain.Entities
 {
     public class Base
     {
-        public Guid Id { get; private set; }
+        public Guid Id { get;  }
+
+        public Base()
+        {
+            this.Id = Guid.CreateVersion7();
+        }
     }
 }

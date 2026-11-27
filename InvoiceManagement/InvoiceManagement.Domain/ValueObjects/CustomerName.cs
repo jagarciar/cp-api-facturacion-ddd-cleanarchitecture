@@ -5,11 +5,11 @@ using System.Text;
 
 namespace InvoiceManagement.Domain.ValueObjects
 {
-    public record Name
+    public record CustomerName
     {
-        public string Value { get; private set; }
+        public string Value { get; }
 
-        public Name(string value)
+        public CustomerName(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
