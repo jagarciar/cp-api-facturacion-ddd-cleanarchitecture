@@ -7,7 +7,7 @@ namespace InvoiceManagement.Domain.ValueObjects
 {
     public record InvoiceNumber
     {
-        public string Value { get; private set; }
+        public string Value { get; }
 
         public InvoiceNumber(string value)
         {
