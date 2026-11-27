@@ -1,4 +1,5 @@
 ﻿using InvoiceManagement.Application.Interfaces;
+using InvoiceManagement.Application.Mappings;
 using InvoiceManagement.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,6 +13,7 @@ namespace InvoiceManagement.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IInvoiceManagementService, InvoiceManagementService>();
+            services.AddAutoMapper(cfg => { }, typeof(InvoiceMappingProfile));
             return services;
         }
     }
