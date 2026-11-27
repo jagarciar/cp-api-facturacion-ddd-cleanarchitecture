@@ -15,7 +15,7 @@ namespace InvoiceManagement.Domain.ValueObjects
             {
                 throw new ExceptionDomain("Customer name cannot be empty.");
             }
-            this.Value = value;
+            this.Value = value.Trim();
         }
     }
 }

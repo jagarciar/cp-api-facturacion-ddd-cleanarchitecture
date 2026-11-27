@@ -14,7 +14,7 @@ namespace InvoiceManagement.Domain.Entities
         public InvoiceStatus Status { get; private set; }
         public decimal Total { get; private set; }
 
-        public Invoice(CustomerName customerName, InvoiceNumber invoiceNumber, InvoiceDate invoiceDate, InvoiceStatus invoiceType, decimal total)
+        public Invoice(CustomerName customerName, InvoiceNumber invoiceNumber, InvoiceDate invoiceDate, InvoiceStatus invoiceStatus, decimal total)
         {
             if(customerName is null)
             {
@@ -32,11 +32,15 @@ namespace InvoiceManagement.Domain.Entities
             {
                 throw new ExceptionDomain("Total must be greater than zero.");
             }
+            if (!Enum.IsDefined(invoiceStatus))
+            {
+                throw new ExceptionDomain("Invalid invoice status.");
+            }
             this.CustomerName = customerName;
             this.InvoiceNumber = invoiceNumber;
             this.InvoiceDate = invoiceDate;
             this.Total = total;
-            this.Status = invoiceType;
+            this.Status = invoiceStatus;
         }
         
     }
