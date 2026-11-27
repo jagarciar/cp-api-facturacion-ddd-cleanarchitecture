@@ -1,6 +1,17 @@
-@InvoiceManagement.API_HostAddress = http://localhost:7206
+@InvoiceManagement.API_HostAddress = http://localhost:5137
 
-GET {{InvoiceManagement.API_HostAddress}}/invoices/
+GET {{InvoiceManagement.API_HostAddress}}/api/invoices/
 Accept: application/json
 
-###
+### Crear factura
+
+POST {{InvoiceManagement.API_HostAddress}}/api/invoices/
+Content-Type: application/json
+{
+  "customerName": "Juan Pérez",
+  "invoiceNumber": "FAC-001",
+  "issueDate": "2026-11-27",
+  "dueDate": "2026-12-27",
+  "total": 1500,
+  "status": 1
+}

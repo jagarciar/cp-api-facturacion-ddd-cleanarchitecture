@@ -19,9 +19,23 @@ namespace InvoiceManagement.Infraestructure.Repositories
 
             modelBuilder.Entity<Invoice>(entity =>
             {
-                entity.OwnsOne(i => i.CustomerName);
-                entity.OwnsOne(i => i.InvoiceNumber);
-                entity.OwnsOne(i => i.InvoiceDate);
+                entity.OwnsOne(i => i.CustomerName, customerName =>
+                {
+                    customerName.Property(x => x.Value)
+                    .IsRequired();
+                });
+                entity.OwnsOne(i => i.InvoiceNumber, invoiceNumber =>
+                {
+                    invoiceNumber.Property(x => x.Value)
+                    .IsRequired();
+                });
+                entity.OwnsOne(i => i.InvoiceDate, invoiceDate =>
+                {
+                    invoiceDate.Property(x => x.IssueDate)
+                    .IsRequired();
+                invoiceDate.Property(x => x.DueDate)
+                .IsRequired();
+                });
             });
         }
     }

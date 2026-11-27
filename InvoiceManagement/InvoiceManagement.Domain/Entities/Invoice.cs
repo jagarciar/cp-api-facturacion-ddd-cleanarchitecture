@@ -11,6 +11,7 @@ namespace InvoiceManagement.Domain.Entities
         public InvoiceStatus Status { get; private set; }
         public decimal Total { get; private set; }
 
+        private Invoice() { }
         public Invoice(CustomerName customerName, InvoiceNumber invoiceNumber, InvoiceDate invoiceDate, InvoiceStatus invoiceStatus, decimal total)
         {
             this.Validate(customerName, invoiceNumber, invoiceDate, invoiceStatus, total);
