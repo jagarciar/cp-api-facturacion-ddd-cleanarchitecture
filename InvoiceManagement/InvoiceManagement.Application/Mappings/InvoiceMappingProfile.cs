@@ -12,38 +12,26 @@ namespace InvoiceManagement.Application.Mappings
     {
         public InvoiceMappingProfile()
         {
-            CreateMap<Invoice, GetInvoiceByIdResponse>()
+            CreateMap<Invoice, InvoiceResponseBase>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.CustomerName.Value))
                 .ForMember(dest => dest.InvoiceNumber, opt => opt.MapFrom(src => src.InvoiceNumber.Value))
                 .ForMember(dest => dest.IssueDate, opt => opt.MapFrom(src => src.InvoiceDate.IssueDate))
                 .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.InvoiceDate.DueDate))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status));
+
+            CreateMap<Invoice, GetInvoiceByIdResponse>()
+                .IncludeBase<Invoice, InvoiceResponseBase>();
 
             CreateMap<Invoice, GetAllInvoicesResponse>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.CustomerName.Value))
-                .ForMember(dest => dest.InvoiceNumber, opt => opt.MapFrom(src => src.InvoiceNumber.Value))
-                .ForMember(dest => dest.IssueDate, opt => opt.MapFrom(src => src.InvoiceDate.IssueDate))
-                .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.InvoiceDate.DueDate))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status));
+                .IncludeBase<Invoice, InvoiceResponseBase>();
 
             CreateMap<Invoice, CreateInvoiceResponse>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-               .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.CustomerName.Value))
-               .ForMember(dest => dest.InvoiceNumber, opt => opt.MapFrom(src => src.InvoiceNumber.Value))
-               .ForMember(dest => dest.IssueDate, opt => opt.MapFrom(src => src.InvoiceDate.IssueDate))
-               .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.InvoiceDate.DueDate))
-               .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status));
+               .IncludeBase<Invoice, InvoiceResponseBase>();
 
-          
+
             CreateMap<Invoice, UpdateInvoiceResponse>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-               .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.CustomerName.Value))
-               .ForMember(dest => dest.InvoiceNumber, opt => opt.MapFrom(src => src.InvoiceNumber.Value))
-               .ForMember(dest => dest.IssueDate, opt => opt.MapFrom(src => src.InvoiceDate.IssueDate))
-               .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.InvoiceDate.DueDate))
-               .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status));
+                .IncludeBase<Invoice, InvoiceResponseBase>();
 
             CreateMap<CreateInvoiceRequest, Invoice>()
                 .ConstructUsing(src => new Invoice(
