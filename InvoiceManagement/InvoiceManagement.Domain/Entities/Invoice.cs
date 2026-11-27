@@ -31,7 +31,7 @@ namespace InvoiceManagement.Domain.Entities
             this.Status = invoiceStatus;
         }
 
-        public void Validate(CustomerName customerName, InvoiceNumber invoiceNumber, InvoiceDate invoiceDate, InvoiceStatus invoiceStatus, decimal total)
+        private void Validate(CustomerName customerName, InvoiceNumber invoiceNumber, InvoiceDate invoiceDate, InvoiceStatus invoiceStatus, decimal total)
         {
             if (customerName is null)
             {
