@@ -54,14 +54,6 @@ namespace InvoiceManagement.Application.Mappings
                             src.Total
                         ));
 
-            CreateMap<UpdateInvoiceRequest, Invoice>()
-                .ConstructUsing(src => new Invoice(
-                            new CustomerName(src.CustomerName),
-                            new InvoiceNumber(src.InvoiceNumber),
-                            new InvoiceDate(src.IssueDate, src.DueDate),
-                            src.Status,
-                            src.Total
-                        ));
         }
     }
 }
