@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace InvoiceManagement.Application.DTOs
+{
+    public class GetAllInvoicesResponse
+    {
+        public Guid Id { get; set; }
+        public string CustomerName { get; set; }
+        public string InvoiceNumber { get; set; }
+        public DateOnly IssueDate { get; set; }
+        public DateOnly DueDate { get; set; }
+        public decimal Total { get; set; }
+    }
+}
