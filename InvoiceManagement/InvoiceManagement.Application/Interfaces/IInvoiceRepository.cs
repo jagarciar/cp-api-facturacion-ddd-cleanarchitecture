@@ -5,7 +5,7 @@ using System.Text;
 
 namespace InvoiceManagement.Application.Interfaces
 {
-    public interface IInvoiceManagementRepository
+    public interface IInvoiceRepository
     {
         Task<Invoice> CreateInvoice(Invoice invoice);
         Task<List<Invoice>> GetAllInvoices();
