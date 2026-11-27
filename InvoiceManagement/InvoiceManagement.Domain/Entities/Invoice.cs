@@ -39,6 +39,35 @@ namespace InvoiceManagement.Domain.Entities
             this.Total = total;
             this.Status = invoiceStatus;
         }
-        
+
+        public void Update(CustomerName customerName, InvoiceNumber invoiceNumber, InvoiceDate invoiceDate, InvoiceStatus invoiceStatus, decimal total)
+        {
+            if (customerName is null)
+            {
+                throw new ExceptionDomain("Customer name cannot be null.");
+            }
+            if (invoiceNumber is null)
+            {
+                throw new ExceptionDomain("Invoice number cannot be null.");
+            }
+            if (invoiceDate is null)
+            {
+                throw new ExceptionDomain("Invoice date cannot be null.");
+            }
+            if (total <= 0)
+            {
+                throw new ExceptionDomain("Total must be greater than zero.");
+            }
+            if (!Enum.IsDefined(invoiceStatus))
+            {
+                throw new ExceptionDomain("Invalid invoice status.");
+            }
+            this.CustomerName = customerName;
+            this.InvoiceNumber = invoiceNumber;
+            this.InvoiceDate = invoiceDate;
+            this.Total = total;
+            this.Status = invoiceStatus;
+        }
+
     }
 }

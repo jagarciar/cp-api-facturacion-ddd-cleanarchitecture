@@ -87,20 +87,26 @@ namespace InvoiceManagement.Application.Services
 
         public async Task<UpdateInvoiceResponse?> UpdateInvoice(Guid invoiceId, UpdateInvoiceRequest updateInvoiceRequest)
         {
-            var invoice = await this.invoiceRepository.UpdateInvoice(invoiceId, new Invoice(new CustomerName(updateInvoiceRequest.CustomerName), new InvoiceNumber(updateInvoiceRequest.InvoiceNumber), new InvoiceDate(updateInvoiceRequest.IssueDate, updateInvoiceRequest.DueDate), updateInvoiceRequest.Status, updateInvoiceRequest.Total));
+            var invoice = await this.invoiceRepository.GetInvoiceById(invoiceId);
             if (invoice == null)
+            {
+                return null;
+            }
+            invoice.Update(new CustomerName(updateInvoiceRequest.CustomerName), new InvoiceNumber(updateInvoiceRequest.InvoiceNumber), new InvoiceDate(updateInvoiceRequest.IssueDate, updateInvoiceRequest.DueDate), updateInvoiceRequest.Status, updateInvoiceRequest.Total);
+            var invoiceResult = await this.invoiceRepository.UpdateInvoice(invoice);
+            if(invoiceResult == null)
             {
                 return null;
             }
             return new UpdateInvoiceResponse
             {
-                Id = invoice.Id,
-                CustomerName = invoice.CustomerName.Value,
-                InvoiceNumber = invoice.InvoiceNumber.Value,
-                IssueDate = invoice.InvoiceDate.IssueDate,
-                DueDate = invoice.InvoiceDate.DueDate,
-                Status = invoice.Status,
-                Total = invoice.Total
+                Id = invoiceResult.Id,
+                CustomerName = invoiceResult.CustomerName.Value,
+                InvoiceNumber = invoiceResult.InvoiceNumber.Value,
+                IssueDate = invoiceResult.InvoiceDate.IssueDate,
+                DueDate = invoiceResult.InvoiceDate.DueDate,
+                Status = invoiceResult.Status,
+                Total = invoiceResult.Total
             };
         }
     }

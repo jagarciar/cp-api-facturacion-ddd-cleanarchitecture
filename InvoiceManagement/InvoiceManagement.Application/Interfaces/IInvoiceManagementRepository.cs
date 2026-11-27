@@ -10,7 +10,7 @@ namespace InvoiceManagement.Application.Interfaces
         Task<Invoice> CreateInvoice(Invoice invoice);
         Task<List<Invoice>> GetAllInvoices();
         Task<Invoice?> GetInvoiceById(Guid invoiceId);
-        Task<Invoice?> UpdateInvoice(Guid invoiceId, Invoice invoice);
+        Task<Invoice?> UpdateInvoice(Invoice invoice);
         Task<bool> DeleteInvoice(Guid invoiceId);
     }
 }
