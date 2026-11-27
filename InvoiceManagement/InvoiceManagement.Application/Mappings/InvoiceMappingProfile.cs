@@ -13,12 +13,10 @@ namespace InvoiceManagement.Application.Mappings
         public InvoiceMappingProfile()
         {
             CreateMap<Invoice, InvoiceResponseBase>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.CustomerName.Value))
                 .ForMember(dest => dest.InvoiceNumber, opt => opt.MapFrom(src => src.InvoiceNumber.Value))
                 .ForMember(dest => dest.IssueDate, opt => opt.MapFrom(src => src.InvoiceDate.IssueDate))
-                .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.InvoiceDate.DueDate))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status));
+                .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.InvoiceDate.DueDate));
 
             CreateMap<Invoice, GetInvoiceByIdResponse>()
                 .IncludeBase<Invoice, InvoiceResponseBase>();
