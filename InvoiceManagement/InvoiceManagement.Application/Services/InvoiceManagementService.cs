@@ -59,6 +59,7 @@ namespace InvoiceManagement.Application.Services
                         InvoiceNumber = invoice.InvoiceNumber.Value,
                         IssueDate = invoice.InvoiceDate.IssueDate,
                         DueDate = invoice.InvoiceDate.DueDate,
+                        Status = invoice.Status,
                         Total = invoice.Total
                     });
                 }
