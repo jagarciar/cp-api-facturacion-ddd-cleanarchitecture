@@ -1,0 +1,6 @@
+@InvoiceManagement.API_HostAddress = http://localhost:7206
+
+GET {{InvoiceManagement.API_HostAddress}}/invoices/
+Accept: application/json
+
+###

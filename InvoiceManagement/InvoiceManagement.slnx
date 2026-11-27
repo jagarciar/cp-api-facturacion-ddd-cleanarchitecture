@@ -2,6 +2,7 @@
   <Folder Name="/Elementos de la solución/">
     <File Path="../README.md" />
   </Folder>
+  <Project Path="InvoiceManagement.API/InvoiceManagement.API.csproj" Id="e79b8310-7498-46cd-828c-53bb7db6102a" />
   <Project Path="InvoiceManagement.Application/InvoiceManagement.Application.csproj" />
   <Project Path="InvoiceManagement.Domain/InvoiceManagement.Domain.csproj" />
   <Project Path="InvoiceManagement.Infraestructure/InvoiceManagement.Infraestructure.csproj" Id="955e0a3f-6c50-4cfc-88f1-3f79cff2bb43" />
