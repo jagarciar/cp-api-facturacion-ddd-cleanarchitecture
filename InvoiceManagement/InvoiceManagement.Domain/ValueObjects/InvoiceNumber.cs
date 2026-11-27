@@ -1,7 +1,5 @@
 ﻿using InvoiceManagement.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace InvoiceManagement.Domain.ValueObjects
 {
@@ -15,7 +13,7 @@ namespace InvoiceManagement.Domain.ValueObjects
             {
                 throw new ExceptionDomain("Invoice number cannot be empty.");
             }
-            this.Value = value;
+            this.Value = value.Trim();
         }
     }
 }

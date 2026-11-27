@@ -1,7 +1,5 @@
 ﻿using InvoiceManagement.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace InvoiceManagement.Domain.ValueObjects
 {
@@ -10,7 +8,7 @@ namespace InvoiceManagement.Domain.ValueObjects
         public DateOnly DueDate { get; }
         public DateOnly IssueDate { get;  }
 
-        public InvoiceDate(DateOnly dueDate, DateOnly issueDate)
+        public InvoiceDate(DateOnly issueDate, DateOnly dueDate)
         {
             if(dueDate < issueDate)
             {

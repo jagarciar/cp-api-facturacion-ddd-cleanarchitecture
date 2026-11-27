@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace InvoiceManagement.Domain.Entities
 {
     public enum InvoiceStatus
